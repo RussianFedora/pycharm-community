@@ -67,7 +67,7 @@ for productive Python development on all levels
 
 %package plugins
 Summary:       Plugins for intelligent Python IDE
-Requires:      %{name} = %{version}-%{release}
+Requires:      %{name}%{?_isa} = %{version}-%{release}
 
 %package doc
 Summary:       Documentation for intelligent Python IDE
@@ -76,7 +76,7 @@ Requires:      %{name} = %{version}-%{release}
 
 %package jre
 Summary:       Patched OpenJDK for intelligent Python IDE by JetBrains
-Requires:      %{name} = %{version}-%{release}
+Requires:      %{name}%{?_isa} = %{version}-%{release}
 
 %description plugins
 Intelligent Python IDE contains several plugins. This package
