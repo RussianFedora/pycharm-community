@@ -146,38 +146,26 @@ desktop-file-install                          \
 %{buildroot}%{_datadir}/pycharm.desktop
 
 %files
-%dir %{_datadir}/%{name}
 %{_datadir}/applications/pycharm.desktop
 %{_datadir}/mime/packages/%{name}.xml
 %{_datadir}/pixmaps/pycharm.png
 %{_datadir}/appdata/pycharm-community.appdata.xml
-%{_javadir}/%{name}/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/git4idea/*
-%{_javadir}/%{name}/%{plugins_dir}/git4idea/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/github/*
-%{_javadir}/%{name}/%{plugins_dir}/github/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/hg4idea/*
-%{_javadir}/%{name}/%{plugins_dir}/hg4idea/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/cvsIntegration/*
-%{_javadir}/%{name}/%{plugins_dir}/cvsIntegration/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/ipnb/*
-%{_javadir}/%{name}/%{plugins_dir}/ipnb/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/python-rest/*
-%{_javadir}/%{name}/%{plugins_dir}/python-rest/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/rest/*
-%{_javadir}/%{name}/%{plugins_dir}/rest/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/settings-repository/*
-%{_javadir}/%{name}/%{plugins_dir}/settings-repository/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/svn4idea/*
-%{_javadir}/%{name}/%{plugins_dir}/svn4idea/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/tasks/*
-%{_javadir}/%{name}/%{plugins_dir}/tasks/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/terminal/*
-%{_javadir}/%{name}/%{plugins_dir}/terminal/*
-%exclude %{_javadir}/%{name}/jre/*
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,CppTools,idea-markdown}/*
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}/*
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}/*
+%{_javadir}/%{name}
+%{_javadir}/%{name}/%{plugins_dir}/git4idea
+%{_javadir}/%{name}/%{plugins_dir}/github
+%{_javadir}/%{name}/%{plugins_dir}/hg4idea
+%{_javadir}/%{name}/%{plugins_dir}/cvsIntegration
+%{_javadir}/%{name}/%{plugins_dir}/ipnb
+%{_javadir}/%{name}/%{plugins_dir}/python-rest
+%{_javadir}/%{name}/%{plugins_dir}/rest
+%{_javadir}/%{name}/%{plugins_dir}/settings-repository
+%{_javadir}/%{name}/%{plugins_dir}/svn4idea
+%{_javadir}/%{name}/%{plugins_dir}/tasks
+%{_javadir}/%{name}/%{plugins_dir}/terminal
+%exclude %{_javadir}/%{name}/jre
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,CppTools,idea-markdown}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
 %{_bindir}/pycharm
 
@@ -188,29 +176,18 @@ desktop-file-install                          \
 /usr/bin/update-desktop-database &> /dev/null || :
 
 %files plugins
-%dir %{_javadir}/%{name}/%{plugins_dir}/BashSupport
-%{_javadir}/%{name}/%{plugins_dir}/BashSupport/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/CppTools
-%{_javadir}/%{name}/%{plugins_dir}/CppTools/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/idea-markdown
-%{_javadir}/%{name}/%{plugins_dir}/idea-markdown/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/intellij-ansible
-%{_javadir}/%{name}/%{plugins_dir}/intellij-ansible/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/markdown
-%{_javadir}/%{name}/%{plugins_dir}/markdown/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin
-%{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/Go
-%{_javadir}/%{name}/%{plugins_dir}/Go/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/IdeaVim
-%{_javadir}/%{name}/%{plugins_dir}/IdeaVim/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown
-%{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown/*
+%{_javadir}/%{name}/%{plugins_dir}/BashSupport
+%{_javadir}/%{name}/%{plugins_dir}/CppTools
+%{_javadir}/%{name}/%{plugins_dir}/idea-markdown
+%{_javadir}/%{name}/%{plugins_dir}/intellij-ansible
+%{_javadir}/%{name}/%{plugins_dir}/markdown
+%{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin
+%{_javadir}/%{name}/%{plugins_dir}/Go
+%{_javadir}/%{name}/%{plugins_dir}/IdeaVim
+%{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown
 %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
-%dir %{_javadir}/%{name}/%{plugins_dir}/editorconfig
-%{_javadir}/%{name}/%{plugins_dir}/editorconfig/*
-%dir %{_javadir}/%{name}/%{plugins_dir}/ini4idea
-%{_javadir}/%{name}/%{plugins_dir}/ini4idea/*
+%{_javadir}/%{name}/%{plugins_dir}/editorconfig
+%{_javadir}/%{name}/%{plugins_dir}/ini4idea
 
 %files doc
 %doc *.txt
@@ -222,7 +199,7 @@ desktop-file-install                          \
 
 %changelog
 * Wed Jul 27 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.2-2
-- Added -doc and -jre subpackages. Lots of fixes.
+- Added -doc and -jre subpackages. Lots of fixes. Fixed exclusion of plugins.
 
 * Mon Jul 25 2016 Allan Lewis <allanlewis99@gmail.com> - 2016.2-1
 - Update to latest upstream version, 2016.2.
