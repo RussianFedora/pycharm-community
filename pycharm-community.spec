@@ -48,11 +48,11 @@ Source10       https://plugins.jetbrains.com/plugin/download?pr=idea&updateId=22
 Source11       https://plugins.jetbrains.com/plugin/download?pr=&updateId=24766#/editorconfig-%{editor_config_version}.zip
 Source12       https://plugins.jetbrains.com/plugin/download?pr=&updateId=27026#/ini4idea-%{ini_version}.zip
 
-Source101:     pycharm.xml
-Source102:     pycharm.desktop
-Source103:     pycharm-community.appdata.xml
-Patch1:        pycharm-community-pytest-init-whitespace.patch
-Patch2:        pycharm-community-pytest-parametrize.patch
+Source101:     https://github.com/phracek/pycharm-community-edition/raw/master/pycharm.xml
+Source102:     https://github.com/phracek/pycharm-community-edition/raw/master/pycharm.desktop
+Source103:     https://github.com/phracek/pycharm-community-edition/raw/master/pycharm-community.appdata.xml
+Patch1:        https://github.com/phracek/pycharm-community-edition/raw/master/pycharm-community-pytest-init-whitespace.patch
+Patch2:        https://github.com/phracek/pycharm-community-edition/raw/master/pycharm-community-pytest-parametrize.patch
 
 BuildRequires: desktop-file-utils
 BuildRequires: python2-devel
