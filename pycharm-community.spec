@@ -168,6 +168,9 @@ desktop-file-install                          \
 --dir=%{buildroot}%{_datadir}/applications    \
 %{buildroot}%{_datadir}/pycharm.desktop
 
+%check
+appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/appdata/pycharm-community.appdata.xml
+
 %files
 %{_datadir}/applications/pycharm.desktop
 %{_datadir}/mime/packages/%{name}.xml
@@ -182,10 +185,15 @@ desktop-file-install                          \
 %{_bindir}/pycharm
 
 %post
-/usr/bin/update-desktop-database &> /dev/null || :
+/bin/touch --no-create %{_datadir}/mime/packages &>/dev/null || :
 
 %postun
-/usr/bin/update-desktop-database &> /dev/null || :
+if [ $1 -eq 0 ] ; then
+  /usr/bin/update-mime-database %{_datadir}/mime &> /dev/null || :
+fi
+
+%posttrans
+/usr/bin/update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
 
 %files plugins
 %{_javadir}/%{name}/%{plugins_dir}/BashSupport
