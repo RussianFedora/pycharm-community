@@ -78,6 +78,7 @@ Patch1:        pycharm-community-pytest-init-whitespace.patch
 Patch2:        pycharm-community-pytest-parametrize.patch
 
 BuildRequires: desktop-file-utils
+BuildRequires: /usr/bin/appstream-util
 BuildRequires: python2-devel
 %if %{with python3}
 BuildRequires: python3-devel
