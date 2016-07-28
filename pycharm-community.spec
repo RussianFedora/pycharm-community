@@ -51,7 +51,7 @@
 
 Name:          pycharm-community
 Version:       2016.2
-Release:       2%{?dist}
+Release:       3%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
