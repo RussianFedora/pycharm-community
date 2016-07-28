@@ -169,7 +169,7 @@ desktop-file-install                          \
 %{buildroot}%{_datadir}/pycharm.desktop
 
 %check
-appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/appdata/pycharm-community.appdata.xml
+appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-community.appdata.xml
 
 %files
 %{_datadir}/applications/pycharm.desktop
@@ -218,6 +218,9 @@ fi
 %{_javadir}/%{name}/jre
 
 %changelog
+* Thu Jul 28 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.2-3
+- Updated SPEC: added check section, updated post sections, fixed warnings.
+
 * Wed Jul 27 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.2-2
 - Added -doc and -jre subpackages. Lots of fixes. Fixed exclusion of plugins.
 
