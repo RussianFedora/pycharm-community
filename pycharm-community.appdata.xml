@@ -11,11 +11,8 @@
   </p>
  </description>
  <screenshots>
-   <screenshot type="default" width="1968" height="814">
-       http://www.jetbrains.com/pycharm/img/40/autocomplete@2x.png
-   </screenshot>
-   <screenshot width="642" height="690">
-       http://www.jetbrains.com/pycharm/img/40/scr_why_smartassist.png
+   <screenshot type="default" width="624" height="351">
+       https://raw.githubusercontent.com/RussianFedora/pycharm-community/master/screenshots/pycharm_1.png
    </screenshot>
  </screenshots>
  <url type="homepage">http://www.jetbrains.com/pycharm/</url>
