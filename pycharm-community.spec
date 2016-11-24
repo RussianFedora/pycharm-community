@@ -68,7 +68,7 @@ Source4:       https://github.com/nicoulaj/idea-markdown/archive/%{markdown_vers
 Source5:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
 Source6:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible.zip#/intellij-ansible-%{ansible_version}.zip
 Source7:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
-Source8:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.jar#/Docker-plugin-%{docker_integration_version}.jar
+Source8:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.zip#/Docker-plugin-%{docker_integration_version}.zip
 Source9:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
 Source10:      https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
 Source11:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
@@ -129,6 +129,7 @@ Python IDE by JetBrains, Inc.
 %setup -q -n %{name}-%{version} -D -T -a 5
 %setup -q -n %{name}-%{version} -D -T -a 6
 %setup -q -n %{name}-%{version} -D -T -a 7
+%setup -q -n %{name}-%{version} -D -T -a 8
 %setup -q -n %{name}-%{version} -D -T -a 9
 %setup -q -n %{name}-%{version} -D -T -a 10
 %setup -q -n %{name}-%{version} -D -T -a 11
@@ -159,7 +160,7 @@ cp -arf ./IdeaVim %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./editorconfig %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./ini4idea %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./GitToolBox %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
-cp -af %{SOURCE8} %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
+cp -arf ./Docker-plugin %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 
 rm -f %{buildroot}%{_javadir}/%{name}/bin/fsnotifier{,-arm}
 # this will be in docs
@@ -185,10 +186,10 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-co
 %{_datadir}/appdata/pycharm-community.appdata.xml
 %{_javadir}/%{name}
 %exclude %{_javadir}/%{name}/jre
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,CppTools,idea-markdown,GitToolBox}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,CppTools,idea-markdown}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
-%exclude %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{GitToolBox,Docker-plugin}
 %{_bindir}/pycharm
 
 %post
@@ -212,7 +213,7 @@ fi
 %{_javadir}/%{name}/%{plugins_dir}/Go
 %{_javadir}/%{name}/%{plugins_dir}/IdeaVim
 %{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown
-%{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
+%{_javadir}/%{name}/%{plugins_dir}/Docker-plugin
 %{_javadir}/%{name}/%{plugins_dir}/editorconfig
 %{_javadir}/%{name}/%{plugins_dir}/ini4idea
 %{_javadir}/%{name}/%{plugins_dir}/GitToolBox
