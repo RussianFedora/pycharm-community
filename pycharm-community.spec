@@ -17,8 +17,8 @@
 %global ansible_version 0.9.4
 %global ansible_id 27616
 
-%global bash_version 1.5.8.162
-%global bash_id 26121
+%global bash_version 1.5.8.163
+%global bash_id 28046
 
 %global cpp_tools_version 0.8.8
 %global cpp_tools_id 19624
