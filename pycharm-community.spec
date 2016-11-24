@@ -133,6 +133,7 @@ Python IDE by JetBrains, Inc.
 %setup -q -n %{name}-%{version} -D -T -a 10
 %setup -q -n %{name}-%{version} -D -T -a 11
 %setup -q -n %{name}-%{version} -D -T -a 12
+%setup -q -n %{name}-%{version} -D -T -a 13
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
@@ -157,6 +158,7 @@ cp -arf ./idea-multimarkdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./IdeaVim %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./editorconfig %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./ini4idea %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./GitToolBox %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -af %{SOURCE8} %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
 
 rm -f %{buildroot}%{_javadir}/%{name}/bin/fsnotifier{,-arm}
@@ -183,7 +185,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-co
 %{_datadir}/appdata/pycharm-community.appdata.xml
 %{_javadir}/%{name}
 %exclude %{_javadir}/%{name}/jre
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,CppTools,idea-markdown}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,CppTools,idea-markdown,GitToolBox}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
@@ -213,6 +215,7 @@ fi
 %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin.jar
 %{_javadir}/%{name}/%{plugins_dir}/editorconfig
 %{_javadir}/%{name}/%{plugins_dir}/ini4idea
+%{_javadir}/%{name}/%{plugins_dir}/GitToolBox
 
 %files doc
 %doc *.txt
