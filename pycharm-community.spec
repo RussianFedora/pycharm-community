@@ -47,8 +47,8 @@
 %global markdown_support_version 2016.3.20161123
 %global markdown_support_id 30441
 
-%global git_tool_box_version 16.3.0
-%global git_tool_box_id 28596
+%global git_tool_box_version 163.2
+%global git_tool_box_id 30432
 
 %global markdown_version 0.9.7
 
