@@ -70,7 +70,7 @@ Source6:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-a
 Source7:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
 Source8:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.jar#/Docker-plugin-%{docker_integration_version}.jar
 Source9:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
-Source10:      https://plugins.jetbrains.com/files/164/%{ideavim_id}/ideavim-%{ideavim_version}.zip#/ideavim-%{ideavim_version}.zip
+Source10:      https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
 Source11:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
 Source12:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
 Source13:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
