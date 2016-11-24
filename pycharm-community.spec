@@ -54,10 +54,11 @@
 
 Name:          pycharm-community
 Version:       2016.3
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
+ExclusiveArch: x86_64
 
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 
@@ -223,6 +224,9 @@ fi
 %{_javadir}/%{name}/jre
 
 %changelog
+* Thu Nov 24 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.3-2
+- Build only for x86_64.
+
 * Thu Nov 24 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.3-1
 - Updated to 2016.3. Updated plugins. Added GitToolBox to subpackage.
 
