@@ -78,8 +78,6 @@ Source13:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitTo
 Source101:     pycharm.xml
 Source102:     pycharm.desktop
 Source103:     pycharm-community.appdata.xml
-Patch1:        pycharm-community-pytest-init-whitespace.patch
-Patch2:        pycharm-community-pytest-parametrize.patch
 
 BuildRequires: desktop-file-utils
 BuildRequires: /usr/bin/appstream-util
@@ -120,8 +118,6 @@ Python IDE by JetBrains, Inc.
 
 %prep
 %setup -q -n %{name}-%{version}
-%patch1 -p1
-%patch2 -p1
 %setup -q -n %{name}-%{version} -D -T -a 1
 %setup -q -n %{name}-%{version} -D -T -a 2
 %setup -q -n %{name}-%{version} -D -T -a 3
