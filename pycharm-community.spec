@@ -23,8 +23,8 @@
 %global cpp_tools_version 0.8.8
 %global cpp_tools_id 19624
 
-%global docker_integration_version 2.3.3
-%global docker_integration_id 27617
+%global docker_integration_version 2.4.1
+%global docker_integration_id 30315
 
 %global editor_config_version 145.258.3
 %global editor_config_id 24766
