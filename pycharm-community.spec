@@ -38,8 +38,8 @@
 %global idea_multimarkdown_version 2.1.1
 %global idea_multimarkdown_id 28961
 
-%global ideavim_version 0.44-297
-%global ideavim_id 22030
+%global ideavim_version 0.47
+%global ideavim_id 29655
 
 %global ini_version 162.1121.34
 %global ini_id 27026
