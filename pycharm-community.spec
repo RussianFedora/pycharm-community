@@ -53,8 +53,8 @@
 %global markdown_version 0.9.7
 
 Name:          pycharm-community
-Version:       2016.3
-Release:       2%{?dist}
+Version:       2016.3.1
+Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
@@ -224,6 +224,9 @@ fi
 %{_javadir}/%{name}/jre
 
 %changelog
+* Tue Dec 20 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.3.1-1
+- Updated to 2016.3.1.
+
 * Thu Nov 24 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.3-2
 - Build only for x86_64.
 
