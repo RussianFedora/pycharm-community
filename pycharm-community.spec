@@ -35,8 +35,8 @@
 %global go_lang_version 0.13.1914
 %global go_lang_id 30425
 
-%global idea_multimarkdown_version 2.1.1
-%global idea_multimarkdown_id 28961
+%global idea_multimarkdown_version 2.2.0
+%global idea_multimarkdown_id 30681
 
 %global ideavim_version 0.47
 %global ideavim_id 29655
@@ -47,8 +47,8 @@
 %global markdown_support_version 2016.3.20161123
 %global markdown_support_id 30441
 
-%global git_tool_box_version 163.2
-%global git_tool_box_id 30432
+%global git_tool_box_version 16.3.5
+%global git_tool_box_id 30806
 
 %global markdown_version 0.9.7
 
@@ -225,7 +225,7 @@ fi
 
 %changelog
 * Tue Dec 20 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.3.1-1
-- Updated to 2016.3.1.
+- Updated to 2016.3.1. Updated plugins.
 
 * Thu Nov 24 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.3-2
 - Build only for x86_64.
