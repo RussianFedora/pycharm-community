@@ -32,8 +32,8 @@
 %global git_lab_integration_version 1.0.6
 %global git_lab_integration_id 17542
 
-%global go_lang_version 0.13.1914
-%global go_lang_id 30425
+%global go_lang_version 0.171.1931
+%global go_lang_id 31254
 
 %global idea_multimarkdown_version 2.2.0
 %global idea_multimarkdown_id 30681
@@ -50,11 +50,14 @@
 %global git_tool_box_version 16.3.5
 %global git_tool_box_id 30806
 
+%global php_version 171.1834.12
+%global php_id 31307
+
 %global markdown_version 0.9.7
 
 Name:          pycharm-community
 Version:       2016.3.1
-Release:       1%{?dist}
+Release:       2%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
@@ -75,6 +78,7 @@ Source10:      https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{i
 Source11:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
 Source12:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
 Source13:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
+Source14:      https://plugins.jetbrains.com/files/6610/%{php_id}/php-%{php_version}.zip#/php-%{php_version}.zip
 
 Source101:     pycharm.xml
 Source102:     pycharm.desktop
@@ -132,6 +136,7 @@ Python IDE by JetBrains, Inc.
 %setup -q -n %{name}-%{version} -D -T -a 11
 %setup -q -n %{name}-%{version} -D -T -a 12
 %setup -q -n %{name}-%{version} -D -T -a 13
+%setup -q -n %{name}-%{version} -D -T -a 14
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
@@ -158,6 +163,7 @@ cp -arf ./editorconfig %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./ini4idea %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./GitToolBox %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./Docker-plugin %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./php %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 
 rm -f %{buildroot}%{_javadir}/%{name}/bin/fsnotifier{,-arm}
 # this will be in docs
@@ -186,7 +192,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-co
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,CppTools,idea-markdown}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{GitToolBox,Docker-plugin}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{GitToolBox,Docker-plugin,php}
 %{_bindir}/pycharm
 
 %post
@@ -214,6 +220,7 @@ fi
 %{_javadir}/%{name}/%{plugins_dir}/editorconfig
 %{_javadir}/%{name}/%{plugins_dir}/ini4idea
 %{_javadir}/%{name}/%{plugins_dir}/GitToolBox
+%{_javadir}/%{name}/%{plugins_dir}/php
 
 %files doc
 %doc *.txt
@@ -224,6 +231,9 @@ fi
 %{_javadir}/%{name}/jre
 
 %changelog
+* Mon Dec 26 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.3.1-2
+- Added PHP plugin. Updated other plugins.
+
 * Tue Dec 20 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.3.1-1
 - Updated to 2016.3.1. Updated plugins.
 
