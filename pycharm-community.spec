@@ -81,7 +81,7 @@ Source13:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitTo
 Source14:      https://plugins.jetbrains.com/files/6610/%{php_id}/php-%{php_version}.zip#/php-%{php_version}.zip
 
 Source101:     pycharm.xml
-Source102:     pycharm.desktop
+Source102:     pycharm-community.desktop
 Source103:     pycharm-community.appdata.xml
 
 BuildRequires: desktop-file-utils
@@ -170,20 +170,20 @@ rm -f %{buildroot}%{_javadir}/%{name}/bin/fsnotifier{,-arm}
 rm -f %{buildroot}%{_javadir}/help/*.pdf
 cp -af ./bin/pycharm.png %{buildroot}%{_datadir}/pixmaps/pycharm.png
 cp -af %{SOURCE101} %{buildroot}%{_datadir}/mime/packages/%{name}.xml
-cp -af %{SOURCE102} %{buildroot}%{_datadir}/pycharm.desktop
+cp -af %{SOURCE102} %{buildroot}%{_datadir}/pycharm-community.desktop
 cp -a %{SOURCE103} %{buildroot}%{_datadir}/appdata
 ln -s %{_javadir}/%{name}/bin/pycharm.sh %{buildroot}%{_bindir}/pycharm
 desktop-file-install                          \
 --add-category="Development"                  \
 --delete-original                             \
 --dir=%{buildroot}%{_datadir}/applications    \
-%{buildroot}%{_datadir}/pycharm.desktop
+%{buildroot}%{_datadir}/pycharm-community.desktop
 
 %check
 appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-community.appdata.xml
 
 %files
-%{_datadir}/applications/pycharm.desktop
+%{_datadir}/applications/pycharm-community.desktop
 %{_datadir}/mime/packages/%{name}.xml
 %{_datadir}/pixmaps/pycharm.png
 %{_datadir}/appdata/pycharm-community.appdata.xml
