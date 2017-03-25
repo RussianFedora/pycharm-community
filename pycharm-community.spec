@@ -56,7 +56,7 @@
 %global markdown_version 0.9.7
 
 Name:          pycharm-community
-Version:       2016.3.3
+Version:       2017.1
 Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -231,6 +231,9 @@ fi
 %{_javadir}/%{name}/jre
 
 %changelog
+* Sat Mar 25 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1-1
+- Updated to 2017.1. Updated plugins.
+
 * Thu Mar 23 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.3.3-1
 - Updated to 2016.3.3. Updated plugins to latest compactible versions.
 
