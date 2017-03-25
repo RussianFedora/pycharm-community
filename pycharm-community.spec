@@ -65,11 +65,10 @@ URL:           http://www.jetbrains.com/pycharm/
 ExclusiveArch: x86_64
 
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
-
 Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
-Source2:       https://plugins.jetbrains.com/files/8183/%{go_lang_id}/Go-%{go_lang_version}.zip#/Go-%{go_lang_version}.zip
-Source3:       https://plugins.jetbrains.com/files/5047/%{repmapper_id}/RemoteRepositoryMapper.zip#/RemoteRepositoryMapper-%{repmapper_version}.zip
-Source4:       https://plugins.jetbrains.com/files/1800/%{go_lang_id}/DBN-%{dbnavigator_id}.zip#/DBN-%{dbnavigator_version}.zip
+Source2:       https://plugins.jetbrains.com/files/5047/%{go_lang_id}/Go-%{go_lang_version}.zip#/Go-%{go_lang_version}.zip
+Source3:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/RemoteRepositoryMapper.zip#/RemoteRepositoryMapper-%{repmapper_version}.zip
+Source4:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-%{dbnavigator_version}.zip#/DBN-%{dbnavigator_version}.zip
 Source5:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
 Source6:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible.zip#/intellij-ansible-%{ansible_version}.zip
 Source7:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
