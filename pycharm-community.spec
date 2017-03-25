@@ -53,7 +53,8 @@
 %global ignore_plugin_version 1.7.6
 %global ignore_plugin_id 32828
 
-%global markdown_version 0.9.7
+%global dbnavigator_version 15.0
+%global dbnavigator_id 33120
 
 Name:          pycharm-community
 Version:       2017.1
@@ -68,7 +69,7 @@ Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
 Source2:       https://plugins.jetbrains.com/files/8183/%{go_lang_id}/Go-%{go_lang_version}.zip#/Go-%{go_lang_version}.zip
 Source3:       https://plugins.jetbrains.com/files/5047/%{repmapper_id}/RemoteRepositoryMapper.zip#/RemoteRepositoryMapper-%{repmapper_version}.zip
-Source4:       https://github.com/nicoulaj/idea-markdown/archive/%{markdown_version}.zip#/idea-markdown-%{markdown_version}.zip
+Source4:       https://plugins.jetbrains.com/files/1800/%{go_lang_id}/DBN-%{dbnavigator_id}.zip#/DBN-%{dbnavigator_version}.zip
 Source5:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
 Source6:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible.zip#/intellij-ansible-%{ansible_version}.zip
 Source7:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
@@ -147,13 +148,12 @@ mkdir -p %{buildroot}%{_datadir}/applications
 mkdir -p %{buildroot}%{_datadir}/appdata
 mkdir -p %{buildroot}%{_bindir}
 
-mv idea-markdown-%{markdown_version} idea-markdown
 cp -arf ./{lib,bin,jre,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
 cp -arf ./BashSupport %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./RemoteRepositoryMapper %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./Go %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
-cp -arf ./idea-markdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./DBN %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./markdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./intellij-ansible %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./gitlab-integration-plugin %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
@@ -189,7 +189,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-co
 %{_datadir}/appdata/pycharm-community.appdata.xml
 %{_javadir}/%{name}
 %exclude %{_javadir}/%{name}/jre
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,RemoteRepositoryMapper,idea-markdown}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,RemoteRepositoryMapper,DBN}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{GitToolBox,Docker-plugin,idea-gitignore}
@@ -209,7 +209,7 @@ fi
 %files plugins
 %{_javadir}/%{name}/%{plugins_dir}/BashSupport
 %{_javadir}/%{name}/%{plugins_dir}/RemoteRepositoryMapper
-%{_javadir}/%{name}/%{plugins_dir}/idea-markdown
+%{_javadir}/%{name}/%{plugins_dir}/DBN
 %{_javadir}/%{name}/%{plugins_dir}/intellij-ansible
 %{_javadir}/%{name}/%{plugins_dir}/markdown
 %{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin
