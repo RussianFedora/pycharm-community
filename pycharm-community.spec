@@ -50,6 +50,9 @@
 %global git_tool_box_version 171.1.2
 %global git_tool_box_id 33639
 
+%global ignore_plugin_version 1.7.6
+%global ignore_plugin_id 32828
+
 %global markdown_version 0.9.7
 
 Name:          pycharm-community
@@ -75,6 +78,7 @@ Source10:      https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{i
 Source11:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
 Source12:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
 Source13:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
+Source14:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/idea-gitignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
 
 Source101:     pycharm.xml
 Source102:     pycharm-community.desktop
@@ -132,6 +136,7 @@ Python IDE by JetBrains, Inc.
 %setup -q -n %{name}-%{version} -D -T -a 11
 %setup -q -n %{name}-%{version} -D -T -a 12
 %setup -q -n %{name}-%{version} -D -T -a 13
+%setup -q -n %{name}-%{version} -D -T -a 14
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
@@ -158,6 +163,7 @@ cp -arf ./editorconfig %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./ini4idea %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./GitToolBox %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./Docker-plugin %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./idea-gitignore %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 
 rm -f %{buildroot}%{_javadir}/%{name}/bin/fsnotifier{,-arm}
 # this will be in docs
@@ -186,7 +192,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-co
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,CppTools,idea-markdown}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{GitToolBox,Docker-plugin}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{GitToolBox,Docker-plugin,idea-gitignore}
 %{_bindir}/pycharm
 
 %post
@@ -214,6 +220,7 @@ fi
 %{_javadir}/%{name}/%{plugins_dir}/editorconfig
 %{_javadir}/%{name}/%{plugins_dir}/ini4idea
 %{_javadir}/%{name}/%{plugins_dir}/GitToolBox
+%{_javadir}/%{name}/%{plugins_dir}/idea-gitignore
 
 %files doc
 %doc *.txt
