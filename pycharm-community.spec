@@ -153,7 +153,7 @@ cp -arf ./{lib,bin,jre,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
 cp -arf ./BashSupport %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./RemoteRepositoryMapper %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./Go %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
-cp -arf ./DBN %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./DBNavigator %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./markdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./intellij-ansible %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./gitlab-integration-plugin %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
@@ -189,7 +189,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-co
 %{_datadir}/appdata/pycharm-community.appdata.xml
 %{_javadir}/%{name}
 %exclude %{_javadir}/%{name}/jre
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,RemoteRepositoryMapper,DBN}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,RemoteRepositoryMapper,DBNavigator}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{GitToolBox,Docker-plugin,idea-gitignore}
@@ -209,7 +209,7 @@ fi
 %files plugins
 %{_javadir}/%{name}/%{plugins_dir}/BashSupport
 %{_javadir}/%{name}/%{plugins_dir}/RemoteRepositoryMapper
-%{_javadir}/%{name}/%{plugins_dir}/DBN
+%{_javadir}/%{name}/%{plugins_dir}/DBNavigator
 %{_javadir}/%{name}/%{plugins_dir}/intellij-ansible
 %{_javadir}/%{name}/%{plugins_dir}/markdown
 %{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin
