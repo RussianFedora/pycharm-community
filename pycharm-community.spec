@@ -20,8 +20,8 @@
 %global bash_version 1.6.5.171
 %global bash_id 31610
 
-%global cpp_tools_version 0.8.8
-%global cpp_tools_id 19624
+%global repmapper_version 1.6.5
+%global repmapper_id 33718
 
 %global docker_integration_version 2.5.3
 %global docker_integration_id 33621
@@ -66,8 +66,8 @@ ExclusiveArch: x86_64
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 
 Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
-Source2:       https://plugins.jetbrains.com/files/1373/%{cpp_tools_id}/CppTools.zip#/CppTools-%{cpp_tools_version}.zip
-Source3:       https://plugins.jetbrains.com/files/5047/%{go_lang_id}/Go-%{go_lang_version}.zip#/Go-%{go_lang_version}.zip
+Source2:       https://plugins.jetbrains.com/files/8183/%{go_lang_id}/Go-%{go_lang_version}.zip#/Go-%{go_lang_version}.zip
+Source3:       https://plugins.jetbrains.com/files/5047/%{repmapper_id}/RemoteRepositoryMapper.zip#/RemoteRepositoryMapper-%{repmapper_version}.zip
 Source4:       https://github.com/nicoulaj/idea-markdown/archive/%{markdown_version}.zip#/idea-markdown-%{markdown_version}.zip
 Source5:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
 Source6:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible.zip#/intellij-ansible-%{ansible_version}.zip
@@ -111,8 +111,8 @@ Requires:      %{name}%{?_isa} = %{version}-%{release}
 
 %description plugins
 Intelligent Python IDE contains several plugins. This package
-contains plugins like BashSupport, CppTools, GoLang, Markdown, Idea Markdown
-Intellij Ansible, GitLab integration plugin.
+contains plugins like BashSupport, RemoteRepositoryMapper, GoLang, Markdown,
+Idea Markdown, Intellij Ansible, GitLab integration plugin, etc.
 
 %description doc
 This package contains documentation for Intelligent Python IDE.
@@ -151,7 +151,7 @@ mv idea-markdown-%{markdown_version} idea-markdown
 cp -arf ./{lib,bin,jre,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
 cp -arf ./BashSupport %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
-cp -arf ./CppTools %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./RemoteRepositoryMapper %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./Go %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./idea-markdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./markdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
@@ -189,7 +189,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-co
 %{_datadir}/appdata/pycharm-community.appdata.xml
 %{_javadir}/%{name}
 %exclude %{_javadir}/%{name}/jre
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,CppTools,idea-markdown}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,RemoteRepositoryMapper,idea-markdown}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{GitToolBox,Docker-plugin,idea-gitignore}
@@ -208,7 +208,7 @@ fi
 
 %files plugins
 %{_javadir}/%{name}/%{plugins_dir}/BashSupport
-%{_javadir}/%{name}/%{plugins_dir}/CppTools
+%{_javadir}/%{name}/%{plugins_dir}/RemoteRepositoryMapper
 %{_javadir}/%{name}/%{plugins_dir}/idea-markdown
 %{_javadir}/%{name}/%{plugins_dir}/intellij-ansible
 %{_javadir}/%{name}/%{plugins_dir}/markdown
