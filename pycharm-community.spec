@@ -151,7 +151,7 @@ mkdir -p %{buildroot}%{_datadir}/applications
 mkdir -p %{buildroot}%{_datadir}/appdata
 mkdir -p %{buildroot}%{_bindir}
 
-cp -arf ./{lib,bin,jre,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
+cp -arf ./{lib,bin,jre64,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
 cp -arf ./BashSupport %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./RemoteRepositoryMapper %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
@@ -191,7 +191,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-co
 %{_datadir}/pixmaps/pycharm.png
 %{_datadir}/appdata/pycharm-community.appdata.xml
 %{_javadir}/%{name}
-%exclude %{_javadir}/%{name}/jre
+%exclude %{_javadir}/%{name}/jre64
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,RemoteRepositoryMapper,DBNavigator}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
@@ -243,7 +243,7 @@ fi
 %license license/
 
 %files jre
-%{_javadir}/%{name}/jre
+%{_javadir}/%{name}/jre64
 
 %changelog
 * Wed May 03 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1.1-1
