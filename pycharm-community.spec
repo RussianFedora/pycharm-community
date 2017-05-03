@@ -58,7 +58,7 @@
 
 Name:          pycharm-community
 Version:       2017.1.1
-Release:       1%{?dist}
+Release:       2%{?dist}
 
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -248,6 +248,9 @@ fi
 %{_javadir}/%{name}/jre64
 
 %changelog
+* Wed May 03 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1.1-2
+- Updated scriptlets. Removed java from dependencies.
+
 * Wed May 03 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1.1-1
 - Updated to 2017.1.1. Updated plugins.
 
