@@ -72,7 +72,7 @@ Source4:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-%{
 Source5:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
 Source6:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible.zip#/intellij-ansible-%{ansible_version}.zip
 Source7:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
-Source8:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.zip#/Docker-plugin-%{docker_integration_version}.zip
+Source8:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin-3.zip#/Docker-plugin-%{docker_integration_version}.zip
 Source9:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
 Source10:      https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
 Source11:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
@@ -90,7 +90,10 @@ BuildRequires: python2-devel
 %if %{with python3}
 BuildRequires: python3-devel
 %endif
-Requires:      java
+Recommends:    %{name}-jre%{?_isa} = %{version}-%{release}
+
+Requires(post): desktop-file-utils
+Requires(postun): desktop-file-utils
 
 %description
 The intelligent Python IDE with unique code assistance and analysis,
@@ -195,15 +198,27 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-co
 %{_bindir}/pycharm
 
 %post
+%if 0%{?fedora} <= 23 || 0%{?rhel} == 7
 /bin/touch --no-create %{_datadir}/mime/packages &>/dev/null || :
+%endif
+%if 0%{?fedora} <= 24 || 0%{?rhel} == 7
+/usr/bin/update-desktop-database &> /dev/null || :
+%endif
 
 %postun
+%if 0%{?fedora} <= 23 || 0%{?rhel} == 7
 if [ $1 -eq 0 ] ; then
-  /usr/bin/update-mime-database %{_datadir}/mime &> /dev/null || :
+    /usr/bin/update-mime-database %{_datadir}/mime &> /dev/null || :
 fi
+%endif
+%if 0%{?fedora} <= 24 || 0%{?rhel} == 7
+/usr/bin/update-desktop-database &> /dev/null || :
+%endif
 
 %posttrans
+%if 0%{?fedora} <= 23 || 0%{?rhel} == 7
 /usr/bin/update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
+%endif
 
 %files plugins
 %{_javadir}/%{name}/%{plugins_dir}/BashSupport
