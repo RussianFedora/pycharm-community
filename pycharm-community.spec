@@ -92,8 +92,10 @@ BuildRequires: python3-devel
 %endif
 Recommends:    %{name}-jre%{?_isa} = %{version}-%{release}
 
+%if 0%{?fedora} <= 24 || 0%{?rhel} == 7
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
+%endif
 ExclusiveArch: x86_64
 
 %description
