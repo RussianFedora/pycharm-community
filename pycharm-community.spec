@@ -17,8 +17,8 @@
 %global ansible_version 0.9.4
 %global ansible_id 27616
 
-%global bash_version 1.6.5.171
-%global bash_id 31610
+%global bash_version 1.6.9.171
+%global bash_id 34743
 
 %global repmapper_version 1.6.5
 %global repmapper_id 33718
