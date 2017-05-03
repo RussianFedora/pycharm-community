@@ -90,7 +90,9 @@ BuildRequires: python2-devel
 %if %{with python3}
 BuildRequires: python3-devel
 %endif
+%if 0%{?fedora} >= 24
 Recommends:    %{name}-jre%{?_isa} = %{version}-%{release}
+%endif
 
 %if 0%{?fedora} <= 24 || 0%{?rhel} == 7
 Requires(post): desktop-file-utils
