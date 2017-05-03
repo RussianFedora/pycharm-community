@@ -59,10 +59,10 @@
 Name:          pycharm-community
 Version:       2017.1.1
 Release:       1%{?dist}
+
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
 URL:           http://www.jetbrains.com/pycharm/
-ExclusiveArch: x86_64
 
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
@@ -94,6 +94,7 @@ Recommends:    %{name}-jre%{?_isa} = %{version}-%{release}
 
 Requires(post): desktop-file-utils
 Requires(postun): desktop-file-utils
+ExclusiveArch: x86_64
 
 %description
 The intelligent Python IDE with unique code assistance and analysis,
