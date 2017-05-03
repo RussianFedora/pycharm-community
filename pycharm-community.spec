@@ -57,7 +57,7 @@
 %global dbnavigator_id 33120
 
 Name:          pycharm-community
-Version:       2017.1
+Version:       2017.1.1
 Release:       1%{?dist}
 Summary:       Intelligent Python IDE
 License:       ASL 2.0
@@ -230,6 +230,9 @@ fi
 %{_javadir}/%{name}/jre
 
 %changelog
+* Wed May 03 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1.1-1
+- Updated to 2017.1.1. Updated plugins.
+
 * Sat Mar 25 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1-1
 - Updated to 2017.1. Updated plugins.
 
