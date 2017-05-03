@@ -35,8 +35,8 @@
 %global go_lang_version 0.171.1931
 %global go_lang_id 31254
 
-%global idea_multimarkdown_version 2.3.4
-%global idea_multimarkdown_id 32994
+%global idea_multimarkdown_version 2.3.7
+%global idea_multimarkdown_id 34746
 
 %global ideavim_version 0.48
 %global ideavim_id 31805
