@@ -47,14 +47,14 @@
 %global markdown_support_version 2017.1.20170419
 %global markdown_support_id 34427
 
-%global git_tool_box_version 171.1.2
-%global git_tool_box_id 33639
+%global git_tool_box_version 171.1.3
+%global git_tool_box_id 34935
 
 %global ignore_plugin_version 1.7.6
 %global ignore_plugin_id 32828
 
 %global dbnavigator_version 15.0
-%global dbnavigator_id 33120
+%global dbnavigator_id 34902
 
 Name:          pycharm-community
 Version:       2017.1.3
@@ -251,7 +251,7 @@ fi
 
 %changelog
 * Fri May 26 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1.3-1
-- Updated to 2017.1.3.
+- Updated to 2017.1.3. Updated plugins.
 
 * Thu May 04 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1.2-1
 - Updated to 2017.1.2.
