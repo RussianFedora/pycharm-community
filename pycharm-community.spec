@@ -57,7 +57,7 @@
 %global dbnavigator_id 33120
 
 Name:          pycharm-community
-Version:       2017.1.2
+Version:       2017.1.3
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
@@ -250,8 +250,11 @@ fi
 %{_javadir}/%{name}/jre64
 
 %changelog
+* Fri May 26 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1.3-1
+- Updated to 2017.1.3.
+
 * Thu May 04 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1.2-1
-- Updated to 2017.1.1.
+- Updated to 2017.1.2.
 
 * Wed May 03 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1.1-2
 - Updated scriptlets. Removed java from dependencies.
