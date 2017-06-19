@@ -70,7 +70,7 @@ Source2:       https://plugins.jetbrains.com/files/5047/%{go_lang_id}/Go-%{go_la
 Source3:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/RemoteRepositoryMapper.zip#/RemoteRepositoryMapper-%{repmapper_version}.zip
 Source4:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-%{dbnavigator_version}.zip#/DBN-%{dbnavigator_version}.zip
 Source5:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
-Source6:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible.zip#/intellij-ansible-%{ansible_version}.zip
+Source6:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
 Source7:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
 Source8:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin-3.zip#/Docker-plugin-%{docker_integration_version}.zip
 Source9:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
