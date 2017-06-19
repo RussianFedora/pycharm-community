@@ -54,7 +54,7 @@
 %global ignore_plugin_id 32828
 
 %global dbnavigator_version 15.0
-%global dbnavigator_id 34902
+%global dbnavigator_id 36093
 
 Name:          pycharm-community
 Version:       2017.1.4
