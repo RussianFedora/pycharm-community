@@ -14,8 +14,8 @@
 
 %global plugins_dir plugins
 
-%global ansible_version 0.9.4
-%global ansible_id 27616
+%global ansible_version 0.9.5
+%global ansible_id 35585
 
 %global bash_version 1.6.9.171
 %global bash_id 34743
