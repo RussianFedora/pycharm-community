@@ -23,8 +23,8 @@
 %global repmapper_version 1.6.6
 %global repmapper_id 34213
 
-%global docker_integration_version 2.5.3.1
-%global docker_integration_id 34225
+%global docker_integration_version 3.0.1
+%global docker_integration_id 37263
 
 %global editor_config_version 171.2613.14
 %global editor_config_id 32079
