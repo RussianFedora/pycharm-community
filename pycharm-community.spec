@@ -41,8 +41,8 @@
 %global ideavim_version 0.48
 %global ideavim_id 31805
 
-%global ini_version 171.3780.104
-%global ini_id 33680
+%global ini_version 172.3317.57
+%global ini_id 36822
 
 %global markdown_support_version 2017.2.20170419
 %global markdown_support_id 34393
