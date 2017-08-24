@@ -251,7 +251,7 @@ fi
 
 %changelog
 * Thu Aug 24 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.2.2-1
-- Updated to 2017.2.2.
+- Updated to 2017.2.2. Updated plugins.
 
 * Thu Aug 17 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.2.1-1
 - Updated to 2017.2.1. Updated plugins.
