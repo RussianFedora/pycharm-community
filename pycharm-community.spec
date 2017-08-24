@@ -50,8 +50,8 @@
 %global git_tool_box_version 171.1.4
 %global git_tool_box_id 37035
 
-%global ignore_plugin_version 1.7.6
-%global ignore_plugin_id 32828
+%global ignore_plugin_version 2.1.1
+%global ignore_plugin_id 38061
 
 %global dbnavigator_version 17.0
 %global dbnavigator_id 36094
