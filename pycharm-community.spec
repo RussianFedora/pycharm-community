@@ -32,9 +32,6 @@
 %global git_lab_integration_version 1.0.6
 %global git_lab_integration_id 17542
 
-%global go_lang_version 0.171.1931
-%global go_lang_id 31254
-
 %global idea_multimarkdown_version 2.3.8
 %global idea_multimarkdown_id 36922
 
@@ -66,19 +63,18 @@ URL:           http://www.jetbrains.com/pycharm/
 
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
-Source2:       https://plugins.jetbrains.com/files/5047/%{go_lang_id}/Go-%{go_lang_version}.zip#/Go-%{go_lang_version}.zip
-Source3:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/RemoteRepositoryMapper.zip#/RemoteRepositoryMapper-%{repmapper_version}.zip
-Source4:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-%{dbnavigator_version}.zip#/DBN-%{dbnavigator_version}.zip
-Source5:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
-Source6:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
-Source7:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
-Source8:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.zip#/Docker-plugin-%{docker_integration_version}.zip
-Source9:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
-Source10:      https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
-Source11:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
-Source12:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
-Source13:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
-Source14:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/idea-gitignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
+Source2:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/RemoteRepositoryMapper.zip#/RemoteRepositoryMapper-%{repmapper_version}.zip
+Source3:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-%{dbnavigator_version}.zip#/DBN-%{dbnavigator_version}.zip
+Source4:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
+Source5:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
+Source6:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
+Source7:       https://plugins.jetbrains.com/files/7724/%{docker_integration_id}/Docker-plugin.zip#/Docker-plugin-%{docker_integration_version}.zip
+Source8:       https://plugins.jetbrains.com/files/7896/%{idea_multimarkdown_id}/idea-multimarkdown.%{idea_multimarkdown_version}.zip#/idea-multimarkdown-%{idea_multimarkdown_version}.zip
+Source9:      https://plugins.jetbrains.com/files/164/%{ideavim_id}/IdeaVim-%{ideavim_version}.zip#/IdeaVim-%{ideavim_version}.zip
+Source10:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/editorconfig-%{editor_config_version}.zip#/editorconfig-%{editor_config_version}.zip
+Source11:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
+Source12:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
+Source13:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/idea-gitignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
 
 Source101:     pycharm.xml
 Source102:     pycharm-community.desktop
@@ -144,7 +140,6 @@ Python IDE by JetBrains, Inc.
 %setup -q -n %{name}-%{version} -D -T -a 11
 %setup -q -n %{name}-%{version} -D -T -a 12
 %setup -q -n %{name}-%{version} -D -T -a 13
-%setup -q -n %{name}-%{version} -D -T -a 14
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
@@ -159,7 +154,6 @@ cp -arf ./{lib,bin,jre64,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
 cp -arf ./BashSupport %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./RemoteRepositoryMapper %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
-cp -arf ./Go %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./DBNavigator %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./markdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./intellij-ansible %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
@@ -198,7 +192,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-co
 %exclude %{_javadir}/%{name}/jre64
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,RemoteRepositoryMapper,DBNavigator}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{Go,IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{GitToolBox,Docker-plugin,idea-gitignore}
 %{_bindir}/pycharm
 
@@ -232,7 +226,6 @@ fi
 %{_javadir}/%{name}/%{plugins_dir}/intellij-ansible
 %{_javadir}/%{name}/%{plugins_dir}/markdown
 %{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin
-%{_javadir}/%{name}/%{plugins_dir}/Go
 %{_javadir}/%{name}/%{plugins_dir}/IdeaVim
 %{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown
 %{_javadir}/%{name}/%{plugins_dir}/Docker-plugin
