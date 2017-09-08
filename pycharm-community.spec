@@ -163,7 +163,7 @@ cp -arf ./IdeaVim %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./editorconfig %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./ini4idea %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./GitToolBox %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
-cp -arf ./Docker-plugin %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./Docker %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./idea-gitignore %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 
 rm -f %{buildroot}%{_javadir}/%{name}/bin/fsnotifier{,-arm}
@@ -193,7 +193,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-co
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,RemoteRepositoryMapper,DBNavigator}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{GitToolBox,Docker-plugin,idea-gitignore}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{GitToolBox,Docker,idea-gitignore}
 %{_bindir}/pycharm
 
 %post
@@ -228,7 +228,7 @@ fi
 %{_javadir}/%{name}/%{plugins_dir}/gitlab-integration-plugin
 %{_javadir}/%{name}/%{plugins_dir}/IdeaVim
 %{_javadir}/%{name}/%{plugins_dir}/idea-multimarkdown
-%{_javadir}/%{name}/%{plugins_dir}/Docker-plugin
+%{_javadir}/%{name}/%{plugins_dir}/Docker
 %{_javadir}/%{name}/%{plugins_dir}/editorconfig
 %{_javadir}/%{name}/%{plugins_dir}/ini4idea
 %{_javadir}/%{name}/%{plugins_dir}/GitToolBox
