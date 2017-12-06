@@ -54,7 +54,7 @@
 %global dbnavigator_id 36094
 
 Name:          pycharm-community
-Version:       2017.2.3
+Version:       2017.3
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
@@ -243,6 +243,9 @@ fi
 %{_javadir}/%{name}/jre64
 
 %changelog
+* Wed Dec 06 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.3-1
+- Updated to 2017.3. Updated plugins.
+
 * Fri Sep 08 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.2.3-1
 - Updated to 2017.2.3. Updated plugins.
 
