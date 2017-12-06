@@ -26,8 +26,8 @@
 %global docker_integration_version 173.3727.15
 %global docker_integration_id 40538
 
-%global editor_config_version 172.2465.2
-%global editor_config_id 35419
+%global editor_config_version 173.3727.2
+%global editor_config_id 40563
 
 %global git_lab_integration_version 1.0.6
 %global git_lab_integration_id 17542
