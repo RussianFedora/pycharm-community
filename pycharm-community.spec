@@ -227,7 +227,7 @@ fi
 
 %files plugins
 %{_javadir}/%{name}/%{plugins_dir}/BashSupport
-%{_javadir}/%{name}/%{plugins_dir}/RemoteRepositoryMapper
+%{_javadir}/%{name}/%{plugins_dir}/GitLink
 %{_javadir}/%{name}/%{plugins_dir}/DBNavigator
 %{_javadir}/%{name}/%{plugins_dir}/intellij-ansible
 %{_javadir}/%{name}/%{plugins_dir}/markdown
