@@ -53,6 +53,9 @@
 %global dbnavigator_version 17.0
 %global dbnavigator_id 38969
 
+%global rust_version 0.2.0.2081
+%global rust_id 41158
+
 Name:          pycharm-community
 Version:       2017.3
 Release:       1%{?dist}
@@ -75,6 +78,7 @@ Source10:      https://plugins.jetbrains.com/files/7294/%{editor_config_id}/edit
 Source11:      https://plugins.jetbrains.com/files/6981/%{ini_id}/ini4idea-%{ini_version}.zip#/ini4idea-%{ini_version}.zip
 Source12:      https://plugins.jetbrains.com/files/7499/%{git_tool_box_id}/GitToolBox-%{git_tool_box_version}.zip#/GitToolBox-%{git_tool_box_version}.zip
 Source13:      https://plugins.jetbrains.com/files/7495/%{ignore_plugin_id}/idea-gitignore-%{ignore_plugin_version}.zip#/GitIgnore-%{ignore_plugin_version}.zip
+Source14:      https://plugins.jetbrains.com/files/8182/%{rust_id}/intellij-rust-%{rust_version}.zip#/intellij-rust-%{rust_version}.zip
 
 Source101:     pycharm.xml
 Source102:     pycharm-community.desktop
@@ -140,6 +144,7 @@ Python IDE by JetBrains, Inc.
 %setup -q -n %{name}-%{version} -D -T -a 11
 %setup -q -n %{name}-%{version} -D -T -a 12
 %setup -q -n %{name}-%{version} -D -T -a 13
+%setup -q -n %{name}-%{version} -D -T -a 14
 
 %install
 mkdir -p %{buildroot}%{_javadir}/%{name}
@@ -165,6 +170,7 @@ cp -arf ./ini4idea %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./GitToolBox %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./Docker %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./idea-gitignore %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./intellij-rust %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 
 rm -f %{buildroot}%{_javadir}/%{name}/bin/fsnotifier{,-arm}
 # this will be in docs
@@ -193,7 +199,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-co
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,GitLink,DBNavigator}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{GitToolBox,Docker,idea-gitignore}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{GitToolBox,Docker,idea-gitignore,intellij-rust}
 %{_bindir}/pycharm
 
 %post
@@ -233,6 +239,7 @@ fi
 %{_javadir}/%{name}/%{plugins_dir}/ini4idea
 %{_javadir}/%{name}/%{plugins_dir}/GitToolBox
 %{_javadir}/%{name}/%{plugins_dir}/idea-gitignore
+%{_javadir}/%{name}/%{plugins_dir}/intellij-rust
 
 %files doc
 %doc *.txt
