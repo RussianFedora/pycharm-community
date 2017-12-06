@@ -20,8 +20,8 @@
 %global bash_version 1.6.12.173
 %global bash_id 38798
 
-%global repmapper_version 1.6.6
-%global repmapper_id 34213
+%global repmapper_version 2.2.0
+%global repmapper_id 40747
 
 %global docker_integration_version 172.3968.28
 %global docker_integration_id 38244
@@ -63,7 +63,7 @@ URL:           http://www.jetbrains.com/pycharm/
 
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
-Source2:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/RemoteRepositoryMapper.zip#/RemoteRepositoryMapper-%{repmapper_version}.zip
+Source2:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/GitLink-%{repmapper_version}.zip#/GitLink-%{repmapper_version}.zip
 Source3:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-%{dbnavigator_version}.zip#/DBN-%{dbnavigator_version}.zip
 Source4:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
 Source5:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
@@ -153,7 +153,7 @@ mkdir -p %{buildroot}%{_bindir}
 cp -arf ./{lib,bin,jre64,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
 cp -arf ./BashSupport %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
-cp -arf ./RemoteRepositoryMapper %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
+cp -arf ./GitLink %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./DBNavigator %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./markdown %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./intellij-ansible %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
@@ -190,7 +190,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-co
 %{_datadir}/appdata/pycharm-community.appdata.xml
 %{_javadir}/%{name}
 %exclude %{_javadir}/%{name}/jre64
-%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,RemoteRepositoryMapper,DBNavigator}
+%exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,GitLink,DBNavigator}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{GitToolBox,Docker,idea-gitignore}
