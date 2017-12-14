@@ -55,8 +55,8 @@
 %global dbnavigator_version 17.0
 %global dbnavigator_id 38969
 
-%global rust_version 0.2.0.2081
-%global rust_id 41158
+%global rust_version 0.2.0.2082
+%global rust_id 41348
 
 Name:          pycharm-community
 Version:       2017.3.1
