@@ -59,7 +59,7 @@
 %global rust_id 41158
 
 Name:          pycharm-community
-Version:       2017.3
+Version:       2017.3.1
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
@@ -252,6 +252,9 @@ fi
 %{_javadir}/%{name}/jre64
 
 %changelog
+* Thu Dec 14 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.3.1-1
+- Updated to 2017.3.1.
+
 * Wed Dec 06 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.3-1
 - Updated to 2017.3. Updated plugins.
 
