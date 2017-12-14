@@ -46,8 +46,8 @@
 %global markdown_support_version 173.2696.26
 %global markdown_support_id 39197
 
-%global git_tool_box_version 173.1.1
-%global git_tool_box_id 40570
+%global git_tool_box_version 173.1.2
+%global git_tool_box_id 41251
 
 %global ignore_plugin_version 2.3.2
 %global ignore_plugin_id 40625
