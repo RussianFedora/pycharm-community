@@ -1,3 +1,5 @@
+# disable debuginfo subpackage
+%global debug_package %{nil}
 # don't strip bundled binaries because pycharm checks length (!!!) of binary fsnotif
 # and if you strip debug stuff from it, it will complain
 %global __strip /bin/true
