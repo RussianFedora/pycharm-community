@@ -92,14 +92,8 @@ BuildRequires: python2-devel
 %if %{with python3}
 BuildRequires: python3-devel
 %endif
-%if 0%{?fedora} >= 24
 Recommends:    %{name}-jre%{?_isa} = %{version}-%{release}
-%endif
 
-%if 0%{?fedora} <= 24 || 0%{?rhel} == 7
-Requires(post): desktop-file-utils
-Requires(postun): desktop-file-utils
-%endif
 ExclusiveArch: x86_64
 
 %description
@@ -203,29 +197,6 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-co
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{GitToolBox,Docker,idea-gitignore,intellij-rust}
 %{_bindir}/pycharm
-
-%post
-%if 0%{?fedora} <= 23 || 0%{?rhel} == 7
-/bin/touch --no-create %{_datadir}/mime/packages &>/dev/null || :
-%endif
-%if 0%{?fedora} <= 24 || 0%{?rhel} == 7
-/usr/bin/update-desktop-database &> /dev/null || :
-%endif
-
-%postun
-%if 0%{?fedora} <= 23 || 0%{?rhel} == 7
-if [ $1 -eq 0 ] ; then
-    /usr/bin/update-mime-database %{_datadir}/mime &> /dev/null || :
-fi
-%endif
-%if 0%{?fedora} <= 24 || 0%{?rhel} == 7
-/usr/bin/update-desktop-database &> /dev/null || :
-%endif
-
-%posttrans
-%if 0%{?fedora} <= 23 || 0%{?rhel} == 7
-/usr/bin/update-mime-database %{?fedora:-n} %{_datadir}/mime &> /dev/null || :
-%endif
 
 %files plugins
 %{_javadir}/%{name}/%{plugins_dir}/BashSupport
