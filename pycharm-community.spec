@@ -43,8 +43,8 @@
 %global ini_version 173.3727.84
 %global ini_id 40770
 
-%global markdown_support_version 173.2696.26
-%global markdown_support_id 39197
+%global markdown_support_version 173.4301.21
+%global markdown_support_id 42241
 
 %global git_tool_box_version 173.1.2
 %global git_tool_box_id 41251
