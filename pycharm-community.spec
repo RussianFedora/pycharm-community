@@ -53,7 +53,7 @@
 %global ignore_plugin_id 40625
 
 %global dbnavigator_version 17.0
-%global dbnavigator_id 38969
+%global dbnavigator_id 43403
 
 %global rust_version 0.2.0.2082
 %global rust_id 41348
