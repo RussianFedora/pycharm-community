@@ -22,8 +22,8 @@
 %global bash_version 1.6.13.181
 %global bash_id 43929
 
-%global repmapper_version 2.2.0
-%global repmapper_id 40747
+%global repmapper_version 2.3.1
+%global repmapper_id 44337
 
 %global docker_integration_version 173.3727.15
 %global docker_integration_id 40538
