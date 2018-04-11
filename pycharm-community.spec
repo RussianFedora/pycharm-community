@@ -52,8 +52,8 @@
 %global ignore_plugin_version 2.4.0
 %global ignore_plugin_id 42151
 
-%global dbnavigator_version 17.0
-%global dbnavigator_id 43403
+%global dbnavigator_version 3.0.8071.0
+%global dbnavigator_id 44048
 
 %global rust_version 0.2.0.2087
 %global rust_id 43268
@@ -69,7 +69,7 @@ URL:           http://www.jetbrains.com/pycharm/
 Source0:       http://download.jetbrains.com/python/%{name}-%{version}.tar.gz
 Source1:       https://plugins.jetbrains.com/files/4230/%{bash_id}/BashSupport-%{bash_version}.zip#/BashSupport-%{bash_version}.zip
 Source2:       https://plugins.jetbrains.com/files/8183/%{repmapper_id}/GitLink-%{repmapper_version}.zip#/GitLink-%{repmapper_version}.zip
-Source3:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-%{dbnavigator_version}.zip#/DBN-%{dbnavigator_version}.zip
+Source3:       https://plugins.jetbrains.com/files/1800/%{dbnavigator_id}/DBN-17.0.zip#/DBN-%{dbnavigator_version}.zip
 Source4:       https://plugins.jetbrains.com/files/7793/%{markdown_support_id}/markdown-%{markdown_support_version}.zip#/markdown-%{markdown_support_version}.zip
 Source5:       https://plugins.jetbrains.com/files/7792/%{ansible_id}/intellij-ansible-%{ansible_version}.zip#/intellij-ansible-%{ansible_version}.zip
 Source6:       https://plugins.jetbrains.com/files/7447/%{git_lab_integration_id}/gitlab-integration-plugin.zip#/gitlab-integration-plugin-%{git_lab_integration_version}.zip
