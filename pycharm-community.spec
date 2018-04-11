@@ -174,7 +174,7 @@ rm -f %{buildroot}%{_javadir}/help/*.pdf
 cp -af ./bin/pycharm.png %{buildroot}%{_datadir}/pixmaps/pycharm.png
 cp -af %{SOURCE101} %{buildroot}%{_datadir}/mime/packages/%{name}.xml
 cp -af %{SOURCE102} %{buildroot}%{_datadir}/pycharm-community.desktop
-cp -a %{SOURCE103} %{buildroot}%{_datadir}/appdata
+cp -a %{SOURCE103} %{buildroot}%{_datadir}/metainfo
 ln -s %{_javadir}/%{name}/bin/pycharm.sh %{buildroot}%{_bindir}/pycharm
 desktop-file-install                          \
 --add-category="Development"                  \
@@ -183,13 +183,13 @@ desktop-file-install                          \
 %{buildroot}%{_datadir}/pycharm-community.desktop
 
 %check
-appstream-util validate-relax --nonet %{buildroot}%{_datadir}/appdata/pycharm-community.appdata.xml
+appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-community.appdata.xml
 
 %files
 %{_datadir}/applications/pycharm-community.desktop
 %{_datadir}/mime/packages/%{name}.xml
 %{_datadir}/pixmaps/pycharm.png
-%{_datadir}/appdata/pycharm-community.appdata.xml
+%{_datadir}/metainfo/pycharm-community.appdata.xml
 %{_javadir}/%{name}
 %exclude %{_javadir}/%{name}/jre64
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,GitLink,DBNavigator}
