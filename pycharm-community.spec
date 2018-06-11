@@ -25,8 +25,8 @@
 %global repmapper_version 2.3.1
 %global repmapper_id 44337
 
-%global docker_integration_version 181.4203.550
-%global docker_integration_id 44503
+%global docker_integration_version 181.5087.20
+%global docker_integration_id 46446
 
 %global editor_config_version 181.3741.1
 %global editor_config_id 43278
