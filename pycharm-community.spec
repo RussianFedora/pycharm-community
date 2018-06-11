@@ -224,7 +224,7 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 
 %changelog
 * Mon Jun 11 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.1.4-1
-- Updated to 2018.1.4.
+- Updated to 2018.1.4. Updated plugins.
 
 * Wed Apr 11 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.1.1-1
 - Updated to 2018.1.1. Updated plugins.
