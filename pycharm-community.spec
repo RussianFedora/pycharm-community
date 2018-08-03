@@ -34,8 +34,8 @@
 %global git_lab_integration_version 1.0.6
 %global git_lab_integration_id 17542
 
-%global idea_multimarkdown_version 2.5.2
-%global idea_multimarkdown_id 44195
+%global idea_multimarkdown_version 2.5.4
+%global idea_multimarkdown_id 46921
 
 %global ideavim_version 0.49
 %global ideavim_id 41383
