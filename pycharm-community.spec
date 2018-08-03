@@ -28,8 +28,8 @@
 %global docker_integration_version 182.3684.90
 %global docker_integration_id 48047
 
-%global editor_config_version 181.3741.1
-%global editor_config_id 43278
+%global editor_config_version 182.2949.6
+%global editor_config_id 46642
 
 %global git_lab_integration_version 1.0.6
 %global git_lab_integration_id 17542
