@@ -55,11 +55,11 @@
 %global dbnavigator_version 3.0.8222.0
 %global dbnavigator_id 46638
 
-%global rust_version 0.2.0.2101-182
-%global rust_id 48070
+%global rust_version 0.2.0.2103-182
+%global rust_id 48624
 
 Name:          pycharm-community
-Version:       2018.2
+Version:       2018.2.1
 Release:       1%{?dist}
 
 Summary:       Intelligent Python IDE
@@ -92,9 +92,14 @@ BuildRequires: python2-devel
 %if %{with python3}
 BuildRequires: python3-devel
 %endif
+Requires:      java
+%ifarch x86_64
+%if 0%{?fedora}
 Recommends:    %{name}-jre%{?_isa} = %{version}-%{release}
-
-ExclusiveArch: x86_64
+%else
+Requires:      %{name}-jre%{?_isa} = %{version}-%{release}
+%endif
+%endif
 
 %description
 The intelligent Python IDE with unique code assistance and analysis,
@@ -109,9 +114,11 @@ Summary:       Documentation for intelligent Python IDE
 BuildArch:     noarch
 Requires:      %{name} = %{version}-%{release}
 
+%ifarch x86_64
 %package jre
 Summary:       Patched OpenJDK for intelligent Python IDE by JetBrains
 Requires:      %{name}%{?_isa} = %{version}-%{release}
+%endif
 
 %description plugins
 Intelligent Python IDE contains several plugins. This package
@@ -121,9 +128,11 @@ Idea Markdown, Intellij Ansible, GitLab integration plugin, etc.
 %description doc
 This package contains documentation for Intelligent Python IDE.
 
+%ifarch x86_64
 %description jre
 This package contains patched OpenJDK designed specially for Intelligent
 Python IDE by JetBrains, Inc.
+%endif
 
 %prep
 %setup -q -n %{name}-%{version}
@@ -151,7 +160,10 @@ mkdir -p %{buildroot}%{_datadir}/applications
 mkdir -p %{buildroot}%{_datadir}/metainfo
 mkdir -p %{buildroot}%{_bindir}
 
-cp -arf ./{lib,bin,jre64,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
+cp -arf ./{lib,bin,help,helpers,plugins} %{buildroot}%{_javadir}/%{name}/
+%ifarch x86_64
+cp -arf ./jre64 %{buildroot}%{_javadir}/%{name}/
+%endif
 # Move all plugins to /usr/share/java/pycharm-community/plugins directory
 cp -arf ./BashSupport %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
 cp -arf ./GitLink %{buildroot}%{_javadir}/%{name}/%{plugins_dir}/
@@ -191,7 +203,9 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %{_datadir}/pixmaps/pycharm.png
 %{_datadir}/metainfo/pycharm-community.appdata.xml
 %{_javadir}/%{name}
+%ifarch x86_64
 %exclude %{_javadir}/%{name}/jre64
+%endif
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{BashSupport,GitLink,DBNavigator}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{intellij-ansible,markdown,gitlab-integration-plugin}
 %exclude %{_javadir}/%{name}/%{plugins_dir}/{IdeaVim,idea-multimarkdown,editorconfig,ini4idea}
@@ -219,90 +233,126 @@ appstream-util validate-relax --nonet %{buildroot}%{_datadir}/metainfo/pycharm-c
 %doc help/*.pdf
 %license license/
 
+%ifarch x86_64
 %files jre
 %{_javadir}/%{name}/jre64
+%endif
 
 %changelog
-* Fri Aug 03 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.2-1
-- Updated to 2018.2. Updated plugins.
+* Wed Aug 08 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.2.1-1
+- Updated to version 2018.2.1.
 
-* Mon Jun 11 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.1.4-1
-- Updated to 2018.1.4. Updated plugins.
+* Fri Aug 03 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.2-2
+- Added -jre subpackage with JRE by JetBrains with fixed fonts.
+- Removed obsolete entries from SPEC.
+- All plugins updated to latest versions.
+- Removed all outdated plugins and added new instead.
 
-* Wed Apr 11 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2018.1.1-1
-- Updated to 2018.1.1. Updated plugins.
+* Mon Jul 30 2018 Petr Hracek <phracek@redhat.com> - 2018.2-1
+- Update to the latest upstream version 2018.2
 
-* Wed Mar 14 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.3.4-2
-- Updated to 2017.3.4.
+* Thu May 17 2018 Petr Hracek <phracek@redhat.com> - 2018.1.3-1
+- Update to the latest upstream version, 2018.1.3
 
-* Wed Feb 21 2018 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.3.3-1
-- Updated to 2017.3.3. Updated plugins.
+* Tue Apr 03 2018 Petr Hracek <phracek@redhat.com> - 2018.1-1
+- Update to the latest upstream version, 2018.1
 
-* Thu Dec 14 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.3.1-1
-- Updated to 2017.3.1. Updated plugins.
+* Tue Mar 13 2018 Petr Hracek <phracek@redhat.com> - 2017.3.4-1
+- Update to latest upstream version, 2017.3.4
 
-* Wed Dec 06 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.3-1
-- Updated to 2017.3. Updated plugins.
+* Wed Jan 24 2018 Petr Hracek <phracek@redhat.com> - 2017.3.3-1
+- Update to latest upstream version, 2017.3.3.
 
-* Fri Sep 08 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.2.3-1
-- Updated to 2017.2.3. Updated plugins.
+* Tue Jan 09 2018 Petr Hracek <phracek@redhat.com> - 2017.3.2-1
+- Update to latest upstream version, 2017.3.2.
 
-* Thu Aug 24 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.2.2-1
-- Updated to 2017.2.2. Updated plugins.
+* Thu Dec 14 2017 Petr Hracek <phracek@redhat.com> - 2017.3.1-1
+- Update to latest upstream version, 2017.3.1.
 
-* Thu Aug 17 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.2.1-1
-- Updated to 2017.2.1. Updated plugins.
+* Mon Dec 04 2017 Petr Hracek <phracek@redhat.com> - 2017.3-1
+- Update to latest upstream version, 2017.3
 
-* Mon Jun 19 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1.4-1
-- Updated to 2017.1.4. Updated plugins.
+* Thu Nov 02 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2.4-1
+- Update to latest upstream version, 2017.2.4.
 
-* Fri May 26 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1.3-1
-- Updated to 2017.1.3. Updated plugins.
+* Wed Sep 06 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2.3-1
+- Update to latest upstream version, 2017.2.3.
 
-* Thu May 04 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1.2-1
-- Updated to 2017.1.2.
+* Tue Aug 29 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2.2-1
+- Update to latest upstream version, 2017.2.2.
 
-* Wed May 03 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1.1-2
-- Updated scriptlets. Removed java from dependencies.
+* Fri Aug 11 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2.1-3
+- Update plugins.
 
-* Wed May 03 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1.1-1
-- Updated to 2017.1.1. Updated plugins.
+* Thu Aug 10 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2.1-2
+- Revert top-level archive directory change as upstream archive has been fixed.
 
-* Sat Mar 25 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2017.1-1
-- Updated to 2017.1. Updated plugins.
+* Wed Aug 09 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2.1-1
+- Update to latest upstream version, 2017.2.1.
 
-* Thu Mar 23 2017 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.3.3-1
-- Updated to 2016.3.3. Updated plugins to latest compactible versions.
+* Wed Jul 26 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.2-1
+- Update to latest upstream version, 2017.2.
 
-* Mon Dec 26 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.3.1-2
-- Added PHP plugin. Updated other plugins.
+* Thu Jul 13 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.1.5-1
+- Update to latest upstream version, 2017.1.5.
 
-* Tue Dec 20 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.3.1-1
-- Updated to 2016.3.1. Updated plugins.
+* Fri Jun 16 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.1.4-1
+- Update to latest upstream version, 2017.1.4.
 
-* Thu Nov 24 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.3-2
-- Build only for x86_64.
+* Tue May 30 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.1.3-1
+- Update to latest upstream version, 2017.1.3.
 
-* Thu Nov 24 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.3-1
-- Updated to 2016.3. Updated plugins. Added GitToolBox to subpackage.
+* Tue May 02 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.1.2-1
+- Update to latest upstream version, 2017.1.2.
+
+* Tue Apr 18 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.1.1-1
+- Update to latest upstream version, 2017.1.1.
+
+* Mon Mar 27 2017 Allan Lewis <allanlewis99@gmail.com> - 2017.1-1
+- Update to latest upstream version, 2017.1, and update plugins.
+
+* Fri Mar 17 2017 Allan Lewis <allanlewis99@gmail.com> - 2016.3.3-1
+- Update to latest upstream version, 2016.3.3, and update plugins.
+
+* Wed Mar 15 2017 Petr Hracek <phracek@redhat.com> - 2016.3.2-4
+- Fixing spec file in order to support correct desktop file.
+
+* Wed Mar 15 2017 Petr Hracek <phracek@redhat.com> - 2016.3.2-3
+- Fixing desktop file. Thx hugsie.
+
+* Mon Jan 09 2017 Allan Lewis <allanlewis99@gmail.com> - 2016.3.2-2
+- Remove obsolete "CppTools" plugin and update "Go" plugin.
+
+* Mon Jan 02 2017 Petr Hracek <phracek@redhat.com> - 2016.3.2-1
+- Update to latest upstream version, 2016.3.2.
+
+* Tue Dec 20 2016 Allan Lewis <allanlewis99@gmail.com> - 2016.3.1-1
+- Update to latest upstream version, 2016.3.1.
+
+* Fri Dec 9 2016 Allan Lewis <allanlewis99@gmail.com> - 2016.3-2
+- Update all plugins to the latest versions
+
+* Mon Nov 28 2016 Petr Hracek <phracek@redhat.com> - 2016.3-1
+- Update to the latest upstream version 2016.3
 
 * Mon Oct 17 2016 Petr Hracek <phracek@redhat.com> - 2016.2.3-2
-- Added GitToolBox plugin.
+- Add GitToolBox plugin
 
-* Wed Sep 07 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.2.3-1
-- Updated to 2016.2.3.
+* Mon Sep 12 2016 Petr Hracek <phracek@redhat.com> - 2016.2.3-1
+- Update to the latest upstream version 2016.2.3
 
-* Sat Aug 27 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.2.2-1
-- Updated to 2016.2.2. Updated plugins to latest versions.
+* Fri Aug 26 2016 Petr Hracek <phracek@redhat.com> - 2016.2.2-1
+- Update to the latest upstream version 2016.2.2
 
-* Mon Aug 15 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.2.1-1
-- Updated to 2016.2.1. Updated appdata. Added screenshots to Gnome Software.
+* Thu Aug 25 2016 Petr Hracek <phracek@redhat.com> - 2016.2.1-2
+- Update Docker integration, YAML/Ansible support
+- Update Markdown support
 
-* Thu Jul 28 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.2-3
-- Updated SPEC: added check section, updated post sections, fixed warnings.
+* Mon Aug 15 2016 Allan Lewis <allanlewis99@gmail.com> - 2016.2.1-1
+- Update to latest upstream version, 2016.2.1.
 
 * Wed Jul 27 2016 Vitaly Zaitsev <vitaly@easycoding.org> - 2016.2-2
-- Added -doc and -jre subpackages. Lots of fixes. Fixed exclusion of plugins.
+- Added -doc subpackage. Lots of fixes. Fixed exclusion of plugins.
 
 * Mon Jul 25 2016 Allan Lewis <allanlewis99@gmail.com> - 2016.2-1
 - Update to latest upstream version, 2016.2.
