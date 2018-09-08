@@ -118,6 +118,8 @@ Requires:      %{name} = %{version}-%{release}
 %package jre
 Summary:       Patched OpenJDK for intelligent Python IDE by JetBrains
 Requires:      %{name}%{?_isa} = %{version}-%{release}
+AutoReq:       no
+AutoReqProv:   no
 %endif
 
 %description plugins
